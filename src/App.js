@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import './App.scss';
+import PlayPage from './Components/PlayPage';
+import StartPage from './Components/StartPage';
+import reportWebVitals from './reportWebVitals';
 
 function App() {
+  const [play, setPlay] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {play ? <PlayPage setPlay={setPlay} /> : <StartPage setPlay={setPlay} />}
+    </>
   );
 }
 
 export default App;
+
+//
+reportWebVitals();
